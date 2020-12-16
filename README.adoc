@@ -45,4 +45,5 @@ $ mvn test
 ## References:
 * https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console 
 * https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CLI
+* https://www.jenkins.io/doc/book/managing/groovy-hook-scripts/
 * http://mriet.wordpress.com/2011/06/23/groovy-jenkins-system-script/  
