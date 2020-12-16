@@ -9,25 +9,13 @@
 	
     <name>jenkins-scripting</name>
 
-    <!-- 
-    	Usefull links: 
-        https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console 
-        https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CLI
-        http://mriet.wordpress.com/2011/06/23/groovy-jenkins-system-script/
-        
-        Example scripts:
-        http://scriptlerweb.appspot.com/catalog/list
-        https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console
-        https://github.com/jenkinsci/jenkins-scripts/tree/master/scriptler
-        
-    	For the best experience with code completion and type inference features, it's recommended to use Groovy/Grails Tool Suite.
-    -->
-    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jenkins.version>1.560</jenkins.version>
-        <jenkins.url>http://hostname:8080/</jenkins.url>
-        <jenkins.script>jenkins-script.groovy</jenkins.script>
+        <jenkins.version>2.249.2</jenkins.version>
+        <jenkins.url>CHANGE_ME</jenkins.url>
+        <jenkins.user>CHANGE_ME</jenkins.user>
+        <jenkins.token>CHANGE_ME</jenkins.token>
+        <jenkins.script>./src/main/groovy/jenkins-script.groovy</jenkins.script>
     </properties>
     
     <build>
@@ -63,18 +51,16 @@
                 <version>1.7</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <phase>test</phase>
                         <configuration>
                             <target>
-                                <echo></echo>
-                                <java jar="${org.jenkins-ci.main:cli:jar:jar-with-dependencies}" failonerror="true" fork="true">
-                                <!-- java classname="hudson.cli.CLI" classpathref="maven.compile.classpath" failonerror="true" fork="true" -->
-                                    <arg value="-s"/>
-                                    <arg value="${jenkins.url}"/>
-                                    <arg value="-noCertificateCheck"/>
-                                    <arg value="groovy"/>
-                                    <arg value="${basedir}/src/main/groovy/${jenkins.script}"/>
-                                </java>
+                                <exec executable="bash" failonerror="true" >
+                                    <env key="JENKINS_URL" value="${jenkins.url}"/>
+                                    <env key="JENKINS_USER" value="${jenkins.user}"/>
+                                    <env key="JENKINS_TOKEN" value="${jenkins.token}"/>
+                                    <env key="JENKINS_SCRIPT" value="${jenkins.script}"/>
+                                    <arg value="src/main/resources/jenkins-call-script.sh"/>
+                                </exec>
                             </target>
                         </configuration>
                         <goals>
@@ -96,7 +82,6 @@
             <groupId>org.jenkins-ci.main</groupId>
             <artifactId>cli</artifactId>
             <version>${jenkins.version}</version>
-            <classifier>jar-with-dependencies</classifier>
         </dependency>
         <!-- Groovy is provided by jenkiins-core
         <dependency>
