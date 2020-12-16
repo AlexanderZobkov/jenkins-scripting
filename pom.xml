@@ -78,11 +78,6 @@
             <artifactId>jenkins-core</artifactId>
             <version>${jenkins.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.main</groupId>
-            <artifactId>cli</artifactId>
-            <version>${jenkins.version}</version>
-        </dependency>
         <!-- Groovy is provided by jenkiins-core
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
