@@ -1,0 +1,48 @@
+= Jenkins scripting
+
+This repository contains a Maven project that can help you to ease developing and learning of Jenkins groovy scripts.
+
+This Maven project contains steps to compile groovy scripts and send them for execution to an instance of Jenkins.
+This allows to automate such manual steps, that you do while developing or learning Jenkins scripts,
+as copy-pasting from some text editor to Jenkins script console (https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console)
+and pushing "run" button.
+
+Additionally, if you would like to develop your jenkins groovy scripts or explore Jenkins API (http://javadoc.jenkins-ci.org/)
+with support of code completion or type inference features, open this Maven project in any modern IDE that supports Maven and Groovy.
+
+== Usage
+
+. Adjust Jenkins connectivity and credentials settings in the link:pom.xml[]
++
+```xml
+...
+<jenkins.url>CHANGE_ME</jenkins.url>
+<jenkins.user>CHANGE_ME</jenkins.user>
+<jenkins.token>CHANGE_ME</jenkins.token>
+...
+```
++
+. Check you are able to execute jenkins scripts
++
+```shell
+$ mvn clean test
+```
++
+. Code in link:src/main/groovy/jenkins-script.groovy[]
+If Jenkins core API is not enough for your needs, add dependencies for that or this jenkins plugin to the pom file.
+. Try the script
++
+```shell
+$ mvn test
+```
+. Return to coding
+
+== Example scripts:
+* http://scriptlerweb.appspot.com/catalog/list
+* https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console
+* https://github.com/jenkinsci/jenkins-scripts/tree/master/scriptler
+
+## References:
+* https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console 
+* https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CLI
+* http://mriet.wordpress.com/2011/06/23/groovy-jenkins-system-script/  
