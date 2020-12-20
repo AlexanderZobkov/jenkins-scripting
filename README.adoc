@@ -14,7 +14,9 @@ with support of code completion or type inference features, open this Maven proj
 
 == Usage
 
-. Adjust Jenkins connectivity and credentials settings in the link:pom.xml[]
+. Adjust Jenkins connectivity and credentials settings
++
+* Directly in the link:pom.xml[]
 +
 ```xml
 ...
@@ -22,6 +24,12 @@ with support of code completion or type inference features, open this Maven proj
 <jenkins.user>CHANGE_ME</jenkins.user>
 <jenkins.token>CHANGE_ME</jenkins.token>
 ...
+```
++
+* Or override the properties with CLI options for Maven
++
+```shell
+mvn -Djenkins.url=<url> -Djenins.user=<user> -Djenkins.token=<token> ....
 ```
 +
 . Check you are able to execute jenkins scripts
