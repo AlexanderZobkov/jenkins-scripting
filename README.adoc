@@ -1,5 +1,7 @@
 = Jenkins scripting
 
+image:https://github.com/AlexanderZobkov/jenkins-scripting/workflows/CI/badge.svg?branch=master["Build Status", link="https://github.com/AlexanderZobkov/jenkins-scripting/actions?query=workflow%3ACI"]
+
 This repository contains a Maven project that can help you to ease developing and learning of Jenkins groovy scripts.
 
 This Maven project contains steps to compile groovy scripts and send them for execution to an instance of Jenkins.
