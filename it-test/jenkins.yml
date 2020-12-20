@@ -1,0 +1,13 @@
+jenkins:
+  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code Plugin\n\n Do not edit!"
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+      - id: user
+        password: 1234
+
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false

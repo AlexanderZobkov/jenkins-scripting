@@ -19,3 +19,8 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B compile
+    - name: Run integration tests
+        run: |
+          docker-compose --file it-test/docker-compose.yml up --build -d
+          docker run --network="host" jwilder/dockerize -wait http://localhost:8080/login -timeout 30s -wait-retry-interval 5s
+          mvn test
