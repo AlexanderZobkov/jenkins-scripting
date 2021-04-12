@@ -5,9 +5,17 @@ jenkins:
     local:
       allowsSignup: false
       users:
-      - id: user
-        password: 1234
+        - id: user
+          password: 1234
 
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+
+jobs:
+  - script: >
+      job('demo') {
+        steps {
+          shell('echo Hello World!')
+        }
+      }
