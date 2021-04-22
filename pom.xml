@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jenkins.version>2.288</jenkins.version>
+        <jenkins.version>2.289</jenkins.version>
         <jenkins.url>CHANGE_ME</jenkins.url>
         <jenkins.user>CHANGE_ME</jenkins.user>
         <jenkins.token>CHANGE_ME</jenkins.token>
