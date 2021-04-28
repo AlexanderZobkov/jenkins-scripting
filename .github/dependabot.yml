@@ -5,13 +5,3 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: org.jenkins-ci.main:jenkins-core
-    versions:
-    - "2.271"
-    - "2.277"
-    - "2.278"
-    - "2.287"
-  - dependency-name: org.jenkins-ci.main:cli
-    versions:
-    - "2.271"
