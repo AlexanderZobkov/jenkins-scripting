@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jenkins.version>2.291</jenkins.version>
+        <jenkins.version>2.292</jenkins.version>
         <jenkins.url>CHANGE_ME</jenkins.url>
         <jenkins.user>CHANGE_ME</jenkins.user>
         <jenkins.token>CHANGE_ME</jenkins.token>
@@ -95,7 +95,7 @@
     <repositories>
         <repository>
             <id>jenkins-releases</id>
-            <url>http://repo.jenkins-ci.org/releases/</url>
+            <url>https://repo.jenkins-ci.org/releases/</url>
         </repository>
     </repositories>
   
