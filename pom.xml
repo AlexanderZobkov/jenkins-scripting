@@ -23,7 +23,7 @@
             <!-- https://github.com/groovy/groovy-eclipse/wiki/Groovy-Eclipse-Maven-plugin -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>3.10.0</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
