@@ -38,7 +38,7 @@ mvn -Djenkins.url=<url> -Djenins.user=<user> -Djenkins.token=<token> ....
 $ mvn clean test
 ```
 +
-. Add dependencies specific to your jenkins installation
+. Add dependencies specific to your jenkins installation to the link:pom.xml[]
 +
 ```groovy
 // Put the script to http://<jenkins-controller>/manage/script to generate Maven dependencies declarations.
