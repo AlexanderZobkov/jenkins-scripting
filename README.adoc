@@ -38,6 +38,21 @@ mvn -Djenkins.url=<url> -Djenins.user=<user> -Djenkins.token=<token> ....
 $ mvn clean test
 ```
 +
+. Add dependencies specific to your jenkins installation
++
+```groovy
+// Put the script to http://<jenkins-controller>/manage/script to generate Maven dependencies declarations.
+StringBuilder reply = new StringBuilder()
+Jenkins.instance.pluginManager.plugins.each {
+    def attributes = it.getManifest().getMainAttributes()
+    reply << "<dependency>\n"
+    reply << "  <groupId>${attributes.getValue('Group-Id')}</groupId>\n"
+    reply << "  <artifactId>${attributes.getValue('Short-Name')}</artifactId>\n"
+    reply << "  <version>${attributes.getValue('Plugin-Version')}</version>\n"
+    reply << '</dependency>\n'
+}
+reply.toString()
+```
 . Code in link:src/main/groovy/jenkins-script.groovy[]
 If Jenkins core API is not enough for your needs, add dependencies for that or this jenkins plugin to the pom file.
 . Try the script

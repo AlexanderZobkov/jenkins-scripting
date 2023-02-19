@@ -90,6 +90,7 @@
             <version>2.5</version>
             <type>jar</type>
         </dependency>
+        <!-- TODO: Add Jenkins dependencies specific to your installation -->
     </dependencies>
   
     <repositories>
