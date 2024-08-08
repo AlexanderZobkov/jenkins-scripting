@@ -13,16 +13,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
-          java-version: 11
+          distribution: 'temurin'
+          java-version: 17
       - name: Build with Maven
         run: mvn -B compile
       - name: Run integration tests
         run: |
-            docker-compose --file it-test/docker-compose.yml up --build -d
+            docker compose --file it-test/docker-compose.yml up --build -d
             docker run --network="host" jwilder/dockerize -wait http://localhost:8080/login -timeout 30s -wait-retry-interval 5s
             mvn -Djenkins.url=http://localhost:8080 -Djenkins.user=user -Djenkins.token=1234 test | tee mvn.output
             grep -E '\[INFO\]\s+\[exec\] demo' mvn.output
