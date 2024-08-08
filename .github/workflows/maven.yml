@@ -22,7 +22,7 @@ jobs:
         run: mvn -B compile
       - name: Run integration tests
         run: |
-            docker-compose --file it-test/docker-compose.yml up --build -d
+            docker compose --file it-test/docker-compose.yml up --build -d
             docker run --network="host" jwilder/dockerize -wait http://localhost:8080/login -timeout 30s -wait-retry-interval 5s
             mvn -Djenkins.url=http://localhost:8080 -Djenkins.user=user -Djenkins.token=1234 test | tee mvn.output
             grep -E '\[INFO\]\s+\[exec\] demo' mvn.output
