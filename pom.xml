@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jenkins.version>2.471</jenkins.version>
+        <jenkins.version>2.484</jenkins.version>
         <jenkins.url>CHANGE_ME</jenkins.url>
         <jenkins.user>CHANGE_ME</jenkins.user>
         <jenkins.token>CHANGE_ME</jenkins.token>
@@ -72,23 +72,33 @@
         </plugins>
     </build>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jenkins-ci.main</groupId>
+                <artifactId>jenkins-bom</artifactId>
+                <version>${jenkins.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.jenkins-ci.main</groupId>
             <artifactId>jenkins-core</artifactId>
             <version>${jenkins.version}</version>
         </dependency>
-        <!-- Groovy is provided by jenkiins-core
+        <!-- Groovy is provided by jenkins-core
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
         </dependency -->
-        <!-- Required to compile Jenkins scripts -->
+        <!-- Required to compile Jenkins scripts and expected to be provided by servlet container -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <type>jar</type>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
         <!-- TODO: Add Jenkins dependencies specific to your installation -->
     </dependencies>
