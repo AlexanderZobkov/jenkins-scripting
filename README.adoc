@@ -1,6 +1,6 @@
 = Jenkins scripting
 
-image:https://github.com/AlexanderZobkov/jenkins-scripting/workflows/CI/badge.svg?branch=master["Build Status", link="https://github.com/AlexanderZobkov/jenkins-scripting/actions?query=workflow%3ACI"]
+image:https://github.com/AlexanderZobkov/jenkins-scripting/actions/workflows/maven.yml/badge.svg["Build Status", link="https://github.com/AlexanderZobkov/jenkins-scripting/actions/workflows/maven.yml"]
 
 This repository contains a Maven project that can help you to ease developing and learning of Jenkins groovy scripts.
 
